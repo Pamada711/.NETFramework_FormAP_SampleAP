@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using TestApp.ViewModels;
+
+namespace TestApp.Domain.BindHelpers
+{
+    public sealed class DialogService : IDialogService
+    {
+        public DialogResult ShowDialog(ViewModelBase vm)
+        {
+            string viewName = vm.GetType().FullName.Replace("ViewModel", "View");
+            Type type = Type.GetType(viewName);
+            using (var view = (Form)Activator.CreateInstance(type, vm))
+            {
+                return view.ShowDialog();
+            }
+
+        }
+    }
+}
