@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\BindHelpers\DialogModelessService.cs" />
     <Compile Include="Domain\BindHelpers\DialogService.cs" />
+    <Compile Include="Domain\BindHelpers\IDialogModelessService.cs" />
     <Compile Include="Domain\BindHelpers\IDialogService.cs" />
     <Compile Include="Domain\Entities\ErrorDataEntity.cs" />
     <Compile Include="Domain\Entities\HistoryDataEntity.cs" />

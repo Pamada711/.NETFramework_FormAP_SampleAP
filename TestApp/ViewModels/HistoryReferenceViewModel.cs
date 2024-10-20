@@ -40,6 +40,7 @@ namespace TestApp.ViewModels
             }
         }
 
+
         public BindingList<HistoryReferenceViewModelErrorList> ErrorDataList { get; set; }
             = new BindingList<HistoryReferenceViewModelErrorList>();
 

@@ -15,18 +15,23 @@ namespace TestApp.ViewModels
     {
         private IErrorListRepository _errorList;
         private IDialogService _dialogService;
+        private IDialogModelessService _dialogModelessService;
 
         public ErrorListViewModel()
-            : this(new ErrorDataSQL(), new DialogService())
+            : this(new ErrorDataSQL(), 
+                  new DialogService(),
+                  new DialogModelessService())
         {
         }
 
         public ErrorListViewModel(
             IErrorListRepository errorList,
-            IDialogService dialogService)
+            IDialogService dialogService,
+            IDialogModelessService dialogModelessService)
         {
             _errorList = errorList;
             _dialogService = dialogService;
+            _dialogModelessService = dialogModelessService;
         }
 
         private string _idTextBoxText = string.Empty;
@@ -79,7 +84,7 @@ namespace TestApp.ViewModels
         public void HistoryReferenceShowExecute()
         {
             var vm = new HistoryReferenceViewModel();
-            _dialogService.ShowDialog(vm);
+            _dialogModelessService.Show(vm);
         }
 
         internal void ErrorAggregationShowExecute()
